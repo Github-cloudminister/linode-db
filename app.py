@@ -9,19 +9,19 @@ def test_connection():
     response = []
     response.append("📍 Step 1: Starting the PostgreSQL connection test...")
 
-    # Connection details
-    host = "a269046-akamai-prod-5563659-default.g2a.akamaidb.net"
-    database = "defaultdb"
-    user = "akmadmin"
-    password = "AVNS_s8eoy6y-vRb4FJ1kM34"
-    port = 20107
+    # Updated connection details
+    host = "192.168.150.196"
+    database = "mytestdb"
+    user = "postgres"
+    password = "Uw50Q2wKUVlF23MDp0s0"
+    port = 5432  # default PostgreSQL port
 
     response.append(f"🔍 Step 2: Using connection details:")
     response.append(f"  Host: {host}")
     response.append(f"  Database: {database}")
     response.append(f"  User: {user}")
     response.append(f"  Port: {port}")
-    response.append(f"  SSL Mode: require")
+    response.append(f"  SSL Mode: disable")
     response.append(f"  Timeout: 5 seconds")
 
     try:
@@ -32,7 +32,7 @@ def test_connection():
             user=user,
             password=password,
             port=port,
-            sslmode='require',
+            sslmode='disable',  # assuming local/internal access
             connect_timeout=5
         )
         response.append("✅ Step 4: PostgreSQL connection successful!")
